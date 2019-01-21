@@ -70,3 +70,7 @@
 .top-nav .nav ul .gd a{
     background: url(../img/sf-ico.png) no-repeat -152px -837px;
 }
+.wid{
+    width: 1190px;
+    margin: 0 auto;
+}
