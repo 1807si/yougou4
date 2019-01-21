@@ -126,7 +126,7 @@
 	var $imgs=$('.scroll img');
 	$.ajax({
 		type:'get',
-		url:'php/lunbo.php',
+		url:'/ppt',
 		dataType:'json',
 		success:function(data){
 			$.each(data, function(index,value){
@@ -142,7 +142,7 @@
 	var $imgs=$('.hot-wrap .img img');
 	$.ajax({ 
 		type:'get',
-		url:'php/hot.php',
+		url:'#',
 		dataType:'json',
 		success:function(data){
 			$.each(data, function(index,value){
@@ -161,7 +161,7 @@
 	var $youspan=$('.yougou .brand span');
 	$.ajax({
 		type:'get',
-		url:'php/brandlist.php',
+		url:'#',
 		dataType:'json',
 		success:function(data){
 			$.each(data, function(index,value){
@@ -179,7 +179,7 @@
 	var $bigimg=$('.women');
 	$.ajax({
 		type:'get',
-		url:'php/women.php',
+		url:'#',
 		dataType:'json',
 		success:function(data){
 			$.each(data, function(index,value){
@@ -193,7 +193,7 @@
 	var $simg=$('.women .simg');
 	$.ajax({
 		type:'get',
-		url:'php/simg.php',
+		url:'#',
 		dataType:'json',
 		success:function(data){
 			$.each(data, function(index,value){
@@ -239,7 +239,7 @@
 	console.log($lis);
 	$.ajax({
 		type:'get',
-		url:'php/temai.php',
+		url:'#',
 		dataType:'json',
 		success:function(data){			
 			$.each(data, function(index,value){
