@@ -95,7 +95,7 @@ public class IndexController {
      */
     @ResponseBody
     @RequestMapping(value = "ppt",method = RequestMethod.GET)
-    public List<YgLunbo> getJsonString(Model model) {
+    public List<YgLunbo> getPPT(Model model) {
         List<YgLunbo> lunbos = null;
         String json = HttpClientUtils.doGet(API.API_PPT);
         try {
@@ -112,12 +112,12 @@ public class IndexController {
 
 
 
-    @RequestMapping(value = {"","details"},method = RequestMethod.GET)
+    @RequestMapping(value = {"details"},method = RequestMethod.GET)
     public String details(Model model){
         getJsonString(model);
         return "details";
     }
-    private void getJsonString2(Model model){
+    private void getJsonString(Model model){
         String json = HttpClientUtils.doGet(API.API_CONTENTS);
         try {
             List<YgContent> ygContents = MapperUtils.json2listByTree(json, "data", YgContent.class);
