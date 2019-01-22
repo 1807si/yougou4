@@ -112,18 +112,5 @@ public class IndexController {
 
 
 
-    @RequestMapping(value = {"details"},method = RequestMethod.GET)
-    public String details(Model model){
-        getJsonString(model);
-        return "details";
-    }
-    private void getJsonString(Model model){
-        String json = HttpClientUtils.doGet(API.API_CONTENTS);
-        try {
-            List<YgContent> ygContents = MapperUtils.json2listByTree(json, "data", YgContent.class);
-            model.addAttribute("ygContent",ygContents);//存到域对象中发送给前端
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+   
 }
