@@ -12,14 +12,5 @@
 
 
 
-    <!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    &lt;!&ndash; 开启事务注解驱动 &ndash;&gt;
-    <tx:annotation-driven transaction-manager="transactionManager" />-->
-
-
 
 </beans>

@@ -44,4 +44,33 @@
             OR b.name LIKE CONCAT('%',#{ygContentCategoryDTO.name},'%')
         </if>
     </select>
+    <select id="selectOneById" resultType="YgContentDTO">
+        SELECT
+        <include refid="selectContent"/>
+        ,b.id,
+        b.name
+        FROM
+        yg_content AS a
+        <include refid="joins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="getAll" resultType="YgContentDTO">
+        SELECT
+        <include refid="selectContent"/>
+        FROM
+        yg_content AS a
+        <include refid="joins"/>
+    </select>
+    <select id="findByPic" resultType="YgContentDTO">
+        SELECT
+        <include refid="selectContent"/>
+        ,b.id,
+        b.name
+        FROM
+        yg_content AS a
+        <include refid="joins"/>
+        WHERE
+        a.pic1=#{pic}
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.yougou.shop.api.dao;
 
+
+
 import com.yougou.shop.domain.dto.YgContentCategoryDTO;
 import com.yougou.shop.domain.dto.YgContentDTO;
 
@@ -18,4 +20,8 @@ public interface YgContentDao {
      * @return
      */
     List<YgContentDTO> search(YgContentDTO ygContentDTO);
+
+	YgContentDTO selectOneById(Long id);
+
+	YgContentDTO findByPic(String pic);
 }

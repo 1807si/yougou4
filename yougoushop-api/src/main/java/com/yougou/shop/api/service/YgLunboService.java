@@ -1,5 +1,6 @@
 package com.yougou.shop.api.service;
 
+
 import com.yougou.shop.domain.YgLunbo;
 
 import java.util.List;

@@ -1,5 +1,7 @@
 package com.yougou.shop.api.service;
 
+
+
 import com.yougou.shop.domain.dto.YgContentCategoryDTO;
 import com.yougou.shop.domain.dto.YgContentDTO;
 
@@ -19,4 +21,7 @@ public interface YgContentService {
      * @return
      */
     List<YgContentDTO> search(String name);
+	YgContentDTO getOneById(Long id);
+
+    YgContentDTO findByPic(String pic);
 }

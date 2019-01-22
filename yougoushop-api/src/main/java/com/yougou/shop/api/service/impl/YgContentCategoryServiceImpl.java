@@ -13,11 +13,10 @@ import java.util.List;
 @Service
 public class YgContentCategoryServiceImpl implements YgContentCategoryService {
     @Autowired
-    YgContentCategoryDao ygContentCategoryServiceDao;
-    @Override
+    YgContentCategoryDao ygContentCategoryDao;
     public List<YgContentCategoryDTO> getBeanByParentId(Long parentId) {
-        List<YgContentCategory> ygContentCategories = ygContentCategoryServiceDao.getBeanByParentId(parentId);
-        List<YgContentCategoryDTO> ygContentCategoryDTOS = new ArrayList<>();
+        List<YgContentCategory> ygContentCategories = ygContentCategoryDao.getBeanByParentId(parentId);
+        List<YgContentCategoryDTO> ygContentCategoryDTOS = new ArrayList();
         //对获取到的数据进行封装
         for (YgContentCategory ygContentCategory : ygContentCategories) {
             YgContentCategoryDTO ygContentCategoryDTO = new YgContentCategoryDTO();

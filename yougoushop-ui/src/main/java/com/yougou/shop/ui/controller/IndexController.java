@@ -3,6 +3,7 @@ package com.yougou.shop.ui.controller;
 import com.yougou.shop.commons.dto.BaseResult;
 import com.yougou.shop.commons.util.HttpClientUtils;
 import com.yougou.shop.commons.util.MapperUtils;
+import com.yougou.shop.domain.YgContent;
 import com.yougou.shop.domain.YgContentCategory;
 import com.yougou.shop.ui.api.API;
 import com.yougou.shop.ui.dto.YgContentCategoryDTO;
@@ -104,5 +105,25 @@ public class IndexController {
             e.printStackTrace();
         }
         return lunbos;
+    }
+
+
+
+
+
+
+    @RequestMapping(value = {"","details"},method = RequestMethod.GET)
+    public String details(Model model){
+        getJsonString(model);
+        return "details";
+    }
+    private void getJsonString2(Model model){
+        String json = HttpClientUtils.doGet(API.API_CONTENTS);
+        try {
+            List<YgContent> ygContents = MapperUtils.json2listByTree(json, "data", YgContent.class);
+            model.addAttribute("ygContent",ygContents);//存到域对象中发送给前端
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

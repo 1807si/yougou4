@@ -199,9 +199,9 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
+   <!-- <build>
         <plugins>
-            <!-- Compiler 插件, 设定 JDK 版本 -->
+            &lt;!&ndash; Compiler 插件, 设定 JDK 版本 &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -215,7 +215,7 @@
             </plugin>
         </plugins>
 
-        <!-- 资源文件配置 -->
+        &lt;!&ndash; 资源文件配置 &ndash;&gt;
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -227,6 +227,6 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-    </build>
+    </build>-->
 
 </project>
