@@ -2,8 +2,8 @@ package com.yougou.shop.api.service.impl;
 
 import com.yougou.shop.api.dao.YgContentCategoryDao;
 import com.yougou.shop.api.service.YgContentCategoryService;
-import com.yougou.shop.api.web.dto.YgContentCategoryDTO;
 import com.yougou.shop.domain.YgContentCategory;
+import com.yougou.shop.domain.dto.YgContentCategoryDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
