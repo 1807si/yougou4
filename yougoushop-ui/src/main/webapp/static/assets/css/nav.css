@@ -1,0 +1,76 @@
+/*头部样式*/
+.top-nav{
+    width: 100%;height: 32px;
+    background: url(../img/sf-ico.jpg) repeat-x left -260px;
+}
+.top-nav .nav{
+    height: 100%;
+}
+.top-nav .nav .fashion{
+    width: 98px;
+    border-left: 1px solid #e9e9e9;
+}
+.top-nav .nav .phone{
+    width: 100px;
+    position: relative;
+}
+.top-nav .nav .link_box{
+    float: left;
+    display: inline;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-right: 1px solid #e9e9e9;
+    font-size: 14px;
+    line-height: 30px;
+}
+.top-nav .nav .phone .mob{
+    width: 8px;
+    height: 13px;
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    background: url(../img/sf-ico.png) no-repeat scroll -152px -80px;
+}
+.top-nav .nav .phone em{
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: 10px;
+    left: 82px;
+    background: url(../img/sf-ico.png) no-repeat -187px -840px;
+}
+.top-nav .nav ul{
+    float: right;
+    /*line-height: 30px;*/
+}
+.top-nav .nav ul li{
+    float: left;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 9px;
+    font-size: 12px;
+    padding: 0 5px;
+}
+.top-nav .nav ul .reg{
+    /*margin-left: 19px;*/
+    padding-right: 100px;
+    padding-left: 0;
+    border-right: 1px solid #666;
+}
+.top-nav .nav ul a{
+    padding: 0 10px;
+}
+.top-nav .nav ul .yg a{
+    background: url(../img/sf-ico.png) no-repeat -128px -837px;
+}
+.top-nav .nav ul .gg a{
+    background: url(../img/sf-ico.png) no-repeat -152px -837px;
+}
+.top-nav .nav ul .gd a{
+    background: url(../img/sf-ico.png) no-repeat -152px -837px;
+}
+.wid{
+    width: 1190px;
+    margin: 0 auto;
+}

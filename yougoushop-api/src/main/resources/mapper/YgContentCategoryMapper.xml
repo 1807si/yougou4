@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yougou.shop.api.dao.YgContentCategoryDao">
+    <sql id="selectContent">
+            a.id,
+            a.parent_id AS parentId,
+            a.name,
+            a.is_parent AS isParent,
+            a.update
+    </sql>
+    <sql id="joins">
+        LEFT JOIN content_category AS b
+        ON a.category_id = b.id
+    </sql>
+    <select id="getBeanByParentId"  resultType="YgContentCategory">
+        SELECT
+        <include refid="selectContent"/>
+        FROM
+        yg_content_category AS a
+        WHERE a.parent_id=#{parentId}
+    </select>
+</mapper>

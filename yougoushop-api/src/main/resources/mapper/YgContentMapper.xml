@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yougou.shop.api.dao.YgContentDao">
+    <sql id="selectContent">
+            a.id,
+            a.name,
+            a.price,
+            a.desc,
+            a.pic1,
+            a.pic2,
+            a.pic3
+    </sql>
+    <sql id="joins">
+        LEFT JOIN yg_content_category AS b
+        ON a.category_id = b.id
+    </sql>
+    <select id="getBeanListByCid"  resultType="YgContentDTO">
+        SELECT
+        <include refid="selectContent"/>
+        ,b.id,
+        b.name
+        FROM
+        yg_content AS a
+        <include refid="joins"/>
+        where b.id=#{id}
+    </select>
+    <select id="search"   resultType="YgContentDTO">
+        SELECT
+        <include refid="selectContent"/>
+        ,b.id,
+        b.name
+        FROM
+        yg_content AS a
+        <include refid="joins"/>
+        where
+        1!=1
+        <if test="name!=null and name!=''">
+            OR a.name LIKE CONCAT('%',#{name},'%')
+        </if>
+        <if test="desc!=null and desc!=''">
+            OR a.desc LIKE CONCAT('%',#{desc},'%')
+        </if>
+        <if test="ygContentCategoryDTO.name!=null and ygContentCategoryDTO.name!=''">
+            OR b.name LIKE CONCAT('%',#{ygContentCategoryDTO.name},'%')
+        </if>
+    </select>
+</mapper>
