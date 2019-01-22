@@ -7,4 +7,5 @@ public class API {
     public static final String API_SEARCH = API.HOST+"/indexs/search";
     public static final String API_PCATEGORY = API.HOST+"/indexs/pCategory";
     public static final String CCATEGORY = API.HOST+"/indexs/cCategory";
+	public static String API_CONTENTS=API.HOST+"/ygContent/find";
 }

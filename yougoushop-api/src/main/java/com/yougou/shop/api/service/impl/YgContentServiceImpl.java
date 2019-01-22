@@ -2,8 +2,8 @@ package com.yougou.shop.api.service.impl;
 
 import com.yougou.shop.api.dao.YgContentDao;
 import com.yougou.shop.api.service.YgContentService;
-import com.yougou.shop.api.web.dto.YgContentCategoryDTO;
-import com.yougou.shop.api.web.dto.YgContentDTO;
+import com.yougou.shop.domain.dto.YgContentCategoryDTO;
+import com.yougou.shop.domain.dto.YgContentDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import java.util.List;
 public class YgContentServiceImpl implements YgContentService {
     @Autowired
     YgContentDao ygContentDao;
-    @Override
     public List<YgContentDTO> getBeanListByCid(YgContentCategoryDTO ygContentCategoryDTO) {
         List<YgContentDTO> ygContentDTOS = ygContentDao.getBeanListByCid(ygContentCategoryDTO);
         /*List<YgContentDTO> contentDTOS = new ArrayList<>();
@@ -25,7 +24,6 @@ public class YgContentServiceImpl implements YgContentService {
         return ygContentDTOS;
     }
 
-    @Override
     public List<YgContentDTO> search(String name) {
         boolean b = StringUtils.isBlank(name);
         List<YgContentDTO> ygContentDTOS = null;
@@ -37,5 +35,15 @@ public class YgContentServiceImpl implements YgContentService {
             ygContentDTO.setYgContentCategoryDTO(ygContentCategoryDTO);
             ygContentDTOS = ygContentDao.search(ygContentDTO);
         return ygContentDTOS;
+    }
+	public YgContentDTO getOneById(Long id) {
+        YgContentDTO ygContentDTO = ygContentDao.selectOneById(id);
+
+        return ygContentDTO;
+    }
+
+    public YgContentDTO findByPic(String pic) {
+        final YgContentDTO byPic = ygContentDao.findByPic(pic);
+        return  byPic;
     }
 }
