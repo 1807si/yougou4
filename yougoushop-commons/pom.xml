@@ -47,7 +47,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
-
+        <!-- Servlet Begin -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <!-- Servlet End -->
         <!-- Apache Http Begin -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
