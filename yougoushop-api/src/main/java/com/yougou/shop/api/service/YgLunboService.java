@@ -1,7 +1,7 @@
 package com.yougou.shop.api.service;
 
-import com.yougou.shop.api.web.dto.YgContentCategoryDTO;
-import com.yougou.shop.api.web.dto.YgLunbo;
+
+import com.yougou.shop.domain.YgLunbo;
 
 import java.util.List;
 
