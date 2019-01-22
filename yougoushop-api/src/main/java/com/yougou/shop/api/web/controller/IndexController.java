@@ -3,8 +3,9 @@ package com.yougou.shop.api.web.controller;
 import com.yougou.shop.api.service.YgContentCategoryService;
 import com.yougou.shop.api.service.YgContentService;
 import com.yougou.shop.api.service.YgLunboService;
+
 import com.yougou.shop.commons.dto.BaseResult;
-import com.yougou.shop.domain.YgContentCategory;
+
 import com.yougou.shop.domain.YgLunbo;
 import com.yougou.shop.domain.dto.YgContentCategoryDTO;
 import com.yougou.shop.domain.dto.YgContentDTO;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
