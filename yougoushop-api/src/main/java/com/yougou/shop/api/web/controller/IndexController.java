@@ -1,8 +1,10 @@
 package com.yougou.shop.api.web.controller;
 
+import com.yougou.shop.api.service.YgCartService;
 import com.yougou.shop.api.service.YgContentCategoryService;
 import com.yougou.shop.api.service.YgContentService;
 import com.yougou.shop.api.service.YgLunboService;
+import com.yougou.shop.api.web.dto.CartCountDTO;
 import com.yougou.shop.commons.dto.BaseResult;
 import com.yougou.shop.domain.YgContentCategory;
 import com.yougou.shop.domain.YgLunbo;
@@ -26,6 +28,8 @@ public class IndexController {
     YgContentService ygContentService;
     @Autowired
     YgLunboService ygLunboService;
+    @Autowired
+    YgCartService ygCartService;
     BaseResult baseResult;
 
     /**
@@ -95,6 +99,17 @@ public class IndexController {
     public BaseResult getCcategory(Long id){
         List<YgContentCategoryDTO> data = ygContentCategoryService.getBeanByParentId(id);
         baseResult = BaseResult.success(data);
+        return baseResult;
+    }
+    /*
+    根据id找到购物车数量
+     */
+    @RequestMapping(value = "cartCount",method = RequestMethod.GET)
+    public BaseResult getCartCount(int uid){
+        int i = ygCartService.getCount(uid);
+        CartCountDTO cartCountDTO = new CartCountDTO();
+        cartCountDTO.setCount(i);
+        baseResult = BaseResult.success(cartCountDTO);
         return baseResult;
     }
 }
