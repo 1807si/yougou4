@@ -1,10 +1,7 @@
 package com.yougou.shop.ui.controller;
 
-import com.yougou.shop.commons.dto.BaseResult;
 import com.yougou.shop.commons.util.HttpClientUtils;
 import com.yougou.shop.commons.util.MapperUtils;
-import com.yougou.shop.domain.YgContent;
-import com.yougou.shop.domain.YgContentCategory;
 import com.yougou.shop.ui.api.API;
 import com.yougou.shop.ui.dto.YgContentCategoryDTO;
 import com.yougou.shop.ui.dto.YgContentDTO;
@@ -16,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -40,7 +38,8 @@ public class IndexController {
     public List<YgContentCategoryDTO> getCcategory(Long id) {
         String format = String.format("?id=%s", id);
         List<YgContentCategoryDTO> ygContentCategoryDTOS = null;
-        String json = HttpClientUtils.doGet(API.CCATEGORY);
+        String url = API.CCATEGORY+format;
+        String json = HttpClientUtils.doGet(url);
         try {
             ygContentCategoryDTOS = MapperUtils.json2listByTree(json, "data", YgContentCategoryDTO.class);
             //model.addAttribute("ppt",lunbos);//存到域对象中发送给前端
@@ -59,12 +58,15 @@ public class IndexController {
         }
     }
 
-    private void getContent(Model model) {
-        String format = String.format("?id=%s", 5);
-        String json = HttpClientUtils.doGet(API.API_CONTENT+format);
+    public void getContent(Model model) {
+        String format = String.format("?id=%s", 1);
+        String url = API.API_CONTENT+format;
+        String json = HttpClientUtils.doGet(url);
+        Map<String, Object> contentDTOS = null;
         try {
-            List<YgContentDTO> contentDTOS = MapperUtils.json2listByTree(json, "data", YgContentDTO.class);
-            model.addAttribute("products",contentDTOS);//存到域对象中发送给前端
+            //Map<String,List<YgContentDTO>> contentDTOS =
+            contentDTOS = MapperUtils.json2mapByTree(json, "data");
+            model.addAttribute("content",contentDTOS);//存到域对象中发送给前端
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -95,7 +97,7 @@ public class IndexController {
      */
     @ResponseBody
     @RequestMapping(value = "ppt",method = RequestMethod.GET)
-    public List<YgLunbo> getJsonString(Model model) {
+    public List<YgLunbo> getPPT(Model model) {
         List<YgLunbo> lunbos = null;
         String json = HttpClientUtils.doGet(API.API_PPT);
         try {
@@ -108,22 +110,4 @@ public class IndexController {
     }
 
 
-
-
-
-
-    @RequestMapping(value = {"","details"},method = RequestMethod.GET)
-    public String details(Model model){
-        getJsonString(model);
-        return "details";
-    }
-    private void getJsonString2(Model model){
-        String json = HttpClientUtils.doGet(API.API_CONTENTS);
-        try {
-            List<YgContent> ygContents = MapperUtils.json2listByTree(json, "data", YgContent.class);
-            model.addAttribute("ygContent",ygContents);//存到域对象中发送给前端
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

@@ -5,6 +5,7 @@ import com.yougou.shop.domain.dto.YgContentCategoryDTO;
 import com.yougou.shop.domain.dto.YgContentDTO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface YgContentService {
     /**
@@ -23,4 +24,6 @@ public interface YgContentService {
 	YgContentDTO getOneById(Long id);
 
     YgContentDTO findByPic(String pic);
+
+    Map<String, List<YgContentDTO>> getIndexContent(YgContentCategoryDTO ygContentCategoryDTO);
 }

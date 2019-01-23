@@ -249,4 +249,12 @@ public class MapperUtils {
         JsonNode data = jsonNode.findPath(tree);
         return MapperUtils.json2pojo(data.toString(),clazz);
     }
+    /**
+     * 字符串转换为 Map<String, T>
+     */
+    public static <T> Map<String, Object> json2mapByTree(String jsonString,String tree) throws Exception {
+        JsonNode jsonNode = objectMapper.readTree(jsonString);
+        JsonNode data = jsonNode.findPath(tree);
+        return MapperUtils.json2map(data.toString());
+    }
 }

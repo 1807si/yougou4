@@ -3,6 +3,7 @@ package com.yougou.shop.api.dao;
 
 import com.yougou.shop.domain.dto.YgContentCategoryDTO;
 import com.yougou.shop.domain.dto.YgContentDTO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface YgContentDao {
 	YgContentDTO selectOneById(Long id);
 
 	YgContentDTO findByPic(String pic);
+
+    List<YgContentDTO> getBeanListByLid(@Param("ygContentCategoryDTO")YgContentCategoryDTO ygContentCategoryDTO,@Param("limit") int limit);
 }

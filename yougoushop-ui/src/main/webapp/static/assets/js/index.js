@@ -1,4 +1,5 @@
 //二级导航
+var b;
 ;(function(){
 	var $li=$('.goods-list li');
 	$li.hover(function(){
@@ -6,16 +7,38 @@
 		$(this).children('i').css('background-position-x','-52px');
 		$(this).children('h4').children('a').css('color','#fff');
 		$(this).children('p').children('a').css('color','#fff');
-		$('.sub').eq($(this).index()).show();
+		var sub = $('.sub').eq($(this).index());
+
+        child(this,sub);
+
+		sub.show();
 	},function(){
 		$(this).removeClass('bac');
 		$(this).children('i').css('background-position-x','0')
 		$(this).children('h4').children('a').css('color','#666');
 		$(this).children('p').children('a').css('color','#666');
-		$('.sub').eq($(this).index()).hide();
+        var sub = $('.sub').eq($(this).index());
+        sub.children('p').html("");
+        b="";
+		sub.hide();
 	});
 })();
+function child(li,sub){
+    var id = $(li).attr('id');
 
+    $.ajax({
+        "type":"get",
+        "url":"/cCategory",
+        "data":{"id":id},
+        "dataType":"json",
+        "success":function(data){
+            $.each(data, function(index,value){
+                b += '<a href="">'+data[index].name+'</a>';
+            });
+            sub.children('p').html(b);
+        }
+    });
+}
 //轮播
 ;(function(){
 	var $banner=$('.lunbo');

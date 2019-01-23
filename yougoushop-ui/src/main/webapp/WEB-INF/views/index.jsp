@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: MY HP
@@ -15,6 +16,12 @@
     <link rel="stylesheet" href="/static/assets/css/index.css" />
     <link rel="stylesheet" href="/static/assets/css/normalize.css" />
     <link rel="stylesheet" href="/static/assets/css/nav.css" />
+    <style>
+        .bigImg{
+            width: 362px;
+            height: 432px;
+        }
+    </style>
 </head>
 <body>
 <!--头部-->
@@ -31,7 +38,7 @@
             <a href="##"></a>
         </div>
         <!--搜索框-->
-        <form class="flaot">
+        <form class="flaot" action="/search">
             <input name="name" type="text" />
             <a href="##"></a>
 
@@ -73,43 +80,21 @@
 <!--商品分类列表-->
 <div class="rel wid goods">
     <ul class="goods-list rel">
-        <li>
-            <i></i><h4><a href="##">女鞋</a></h4>
-            <p><a href="##">美靴上新</a> <a href="##">专柜同款</a></p>
-            <!--二级导航-->
+        <c:forEach items="#{pCategorys}" var="category">
+        <li id="${category.id}">
+            <i></i><h4><a href="##">${category.name}</a></h4>
+            <p><a href="##">${category.name}</a> <a href="##">${category.name}</a></p>
+
             <div class="sub">
-                <a href="javascript:;"><img src="/static/assets/img/bee.jpg" /></a>
-                <p>
-                    <a href="javascript:;">美靴上新</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">美靴上新</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">美靴上新</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">美靴上新</a>
-                </p>
-                <a href="javascript:;"><img src="/static/assets/img/edb.jpg" /></a>
-                <p>
-                    <a href="javascript:;">美靴上新</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">美靴上新</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">美靴上新</a>
-                    <a href="javascript:;">短靴</a>
-                    <a href="javascript:;">美靴上新</a>
-                </p>
+                <p></p>
             </div>
         </li>
-        <li>
+        </c:forEach>
+        <%--<li>
             <i></i><h4><a href="##">男鞋</a></h4>
             <p><a href="##">时尚男鞋</a> <a href="##">专柜同款</a></p>
         </li>
-        <li>
-            <i></i><h4><a href="##">运动</a></h4>
-            <p><a href="##">新品上市</a> <a href="##">运动鞋</a> <a href="##">夹克</a></p>
-        </li>
+
         <li>
             <i></i><h4><a href="##">户外</a></h4>
             <p><a href="##">抓绒衣裤</a> <a href="##">冲锋衣</a> <a href="##">越野鞋</a></p>
@@ -117,11 +102,8 @@
         <li>
             <i></i><h4><a href="##">童装/童鞋</a></h4>
             <p><a href="##">外套</a> <a href="##">裤装</a> <a href="##">跑步鞋</a></p>
-        </li>
-        <li>
-            <i></i><h4><a href="##">箱包/配饰</a></h4>
-            <p><a href="##">女包</a> <a href="##">男包</a> <a href="##">饰品</a></p>
-        </li>
+        </li>--%>
+
     </ul>
     <!--轮播-->
     <div class="lunbo abs">
@@ -145,7 +127,7 @@
 <!--主体部分-->
 <div class="main wid">
     <!--热门品牌-->
-    <div class="hot">
+    <%--<div class="hot">
         <div class="hot-title title clear">
             <p class="flaot-l">热门品牌<span>HOT BRAND</span></p>
             <p class="flaot-r">more ></p>
@@ -219,7 +201,7 @@
                 <a href="javascript:;" class="abs" id="btn2"></a>
             </div>
         </div>
-    </div>
+    </div>--%>
     <!--女鞋馆-->
     <div class="women">
         <div class="cap title clear">
@@ -244,16 +226,19 @@
             </div>
             <div class="center">
                 <a href="##">
-                    <img src="" />
+                    <img class="bigImg" src="${content['a2'][1].pic1}" />
                 </a>
             </div>
             <div class="right">
+                <c:forEach items="${content['a2']}" var="a">
+                    <a href="##"><img src="${a.pic1}" class="simg" /></a>
+                </c:forEach>
+                <%--<a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
+                <a href="##"><img src="" class="simg" /></a>--%>
             </div>
         </div>
     </div>
@@ -268,6 +253,7 @@
             <div class="left">
                 <img src="/static/assets/img/02.jpg" />
                 <ul class="clear">
+
                     <li><a href="#"><img src="/static/assets/img/belle.jpg" /></a></li>
                     <li><a href="#"><img src="/static/assets/img/tata.jpg" /></a></li>
                     <li><a href="#"><img src="/static/assets/img/teenmix.jpg" /></a></li>
@@ -282,16 +268,19 @@
             </div>
             <div class="center">
                 <a href="##">
-                    <img src="" />
+                    <img class="bigImg" src="${content['a3'][1].pic1}" />
                 </a>
             </div>
             <div class="right">
+                <c:forEach items="${content['a3']}" var="a">
+                    <a href="##"><img src="${a.pic1}" class="simg" /></a>
+                </c:forEach>
+                <%--<a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
+                <a href="##"><img src="" class="simg" /></a>--%>
             </div>
         </div>
     </div>
@@ -319,16 +308,19 @@
             </div>
             <div class="center">
                 <a href="##">
-                    <img src="" />
+                    <img class="bigImg" src="${content['a4'][1].pic1}" />
                 </a>
             </div>
             <div class="right">
+                <c:forEach items="${content['a4']}" var="a">
+                    <a href="##"><img src="${a.pic1}" class="simg" /></a>
+                </c:forEach>
+                <%--<a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
+                <a href="##"><img src="" class="simg" /></a>--%>
             </div>
         </div>
     </div>
@@ -356,16 +348,19 @@
             </div>
             <div class="center">
                 <a href="##">
-                    <img src="" />
+                    <img class="bigImg" src="${content['a5'][1].pic1}" />
                 </a>
             </div>
             <div class="right">
+                <c:forEach items="${content['a5']}" var="a">
+                    <a href="##"><img src="${a.pic1}" class="simg" /></a>
+                </c:forEach>
+                <%--<a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
                 <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
-                <a href="##"><img src="" class="simg" /></a>
+                <a href="##"><img src="" class="simg" /></a>--%>
             </div>
         </div>
     </div>

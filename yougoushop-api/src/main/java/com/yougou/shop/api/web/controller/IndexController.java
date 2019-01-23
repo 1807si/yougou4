@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("${api.path.v1}/indexs")
@@ -43,13 +44,20 @@ public class IndexController {
      * @param ygContentCategoryDTO
      * @return
      */
-    @RequestMapping(value = "content",method = RequestMethod.GET)
+    @RequestMapping(value = "product",method = RequestMethod.GET)
     public BaseResult getContentByCid(YgContentCategoryDTO ygContentCategoryDTO){
+
         List<YgContentDTO> contentDTOs = ygContentService.getBeanListByCid(ygContentCategoryDTO);
         baseResult = BaseResult.success(contentDTOs);
         return baseResult;
     }
 
+    @RequestMapping(value = "content",method = RequestMethod.GET)
+    public BaseResult getIndexContent(YgContentCategoryDTO ygContentCategoryDTO){
+        Map<String,List<YgContentDTO>> contentDTOs = ygContentService.getIndexContent(ygContentCategoryDTO);
+        baseResult = BaseResult.success(contentDTOs);
+        return baseResult;
+    }
     /**
      * 根据字段搜索
      * @param
