@@ -56,7 +56,7 @@
         <div class="cart">
             <a href="cart.html">
                 <i class="car"></i>
-                <span>购物车(<em>0</em>)件</span>
+                <span>购物车(<em>${cartCount}</em>)件</span>
                 <i class="tip"></i>
             </a>
         </div>
