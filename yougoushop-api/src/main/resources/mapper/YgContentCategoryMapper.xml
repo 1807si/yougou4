@@ -8,10 +8,6 @@
             a.is_parent AS isParent,
             a.update
     </sql>
-    <sql id="joins">
-        LEFT JOIN content_category AS b
-        ON a.category_id = b.id
-    </sql>
     <select id="getBeanByParentId"  resultType="YgContentCategory">
         SELECT
         <include refid="selectContent"/>

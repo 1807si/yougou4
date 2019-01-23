@@ -17,8 +17,8 @@
     <select id="getBeanListByCid"  resultType="YgContentDTO">
         SELECT
         <include refid="selectContent"/>
-        ,b.id,
-        b.name
+        ,b.id AS "ygContentCategoryDTO.id",
+        b.name AS "ygContentCategoryDTO.name"
         FROM
         yg_content AS a
         <include refid="joins"/>
@@ -27,8 +27,8 @@
     <select id="getBeanListByLid"  resultType="YgContentDTO">
         SELECT
         <include refid="selectContent"/>
-        ,b.id,
-        b.name
+        ,b.id AS "ygContentCategoryDTO.id",
+        b.name AS "ygContentCategoryDTO.name"
         FROM
         yg_content AS a
         <include refid="joins"/>
@@ -38,8 +38,8 @@
     <select id="search"   resultType="YgContentDTO">
         SELECT
         <include refid="selectContent"/>
-        ,b.id,
-        b.name
+        ,b.id AS "ygContentCategoryDTO.id",
+        b.name AS "ygContentCategoryDTO.name"
         FROM
         yg_content AS a
         <include refid="joins"/>
@@ -58,8 +58,8 @@
     <select id="selectOneById" resultType="YgContentDTO">
         SELECT
         <include refid="selectContent"/>
-        ,b.id,
-        b.name
+        ,b.id AS "ygContentCategoryDTO.id",
+        b.name AS "ygContentCategoryDTO.name"
         FROM
         yg_content AS a
         <include refid="joins"/>
@@ -76,8 +76,8 @@
     <select id="findByPic" resultType="YgContentDTO">
         SELECT
         <include refid="selectContent"/>
-        ,b.id,
-        b.name
+        ,b.id AS "ygContentCategoryDTO.id",
+        b.name AS "ygContentCategoryDTO.name"
         FROM
         yg_content AS a
         <include refid="joins"/>
